@@ -69,13 +69,13 @@ int main(void)
     int bits_4[7];
 
     // After the following execution we print packed data and save each byte in binary in corresponding 'bits' array
-    printf("Result: \n");
+    printf("Result: ");
     dec_to_binary(byte_1, bits_1);
     dec_to_binary(byte_2, bits_2);
     dec_to_binary(byte_3, bits_3);
     dec_to_binary(byte_4, bits_4);
 
-    printf("\n");
+    printf(" ");
     binary_to_dec(bits_1);
     binary_to_dec(bits_2);
     binary_to_dec(bits_3);
