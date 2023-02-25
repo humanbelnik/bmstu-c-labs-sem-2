@@ -35,8 +35,8 @@ void binary_to_dec(int *bits)
         int digit = (int) ((int) bits[7 - i] * pow(2.0, i));
         sum += digit;
     }
-
-    printf("%d ", sum);
+    printf(" ");
+    printf("%d", sum);
 }
 
 
@@ -50,15 +50,18 @@ int main(void)
     // Input validation
     if (input != 4)
     {
+        printf("Error: incorrect input");
         return INPUT_ERROR_END;
     }
     // Checking overflow of MAX and MIN boundaries
     else if (byte_1 > MAX || byte_2 > MAX || byte_3 > MAX || byte_4 > MAX)
     {
+        printf("Error: byte overflow");
         return BYTE_OVERFLOW_ERROR_END;
     }
     else if (byte_1 < 0 || byte_2 < 0 || byte_3 < 0 || byte_4 < 0)
     {
+        printf("Error: byte overflow");
         return BYTE_OVERFLOW_ERROR_END;
     }
 
@@ -75,7 +78,7 @@ int main(void)
     dec_to_binary(byte_3, bits_3);
     dec_to_binary(byte_4, bits_4);
 
-    printf(" ");
+    //printf(" ");
     binary_to_dec(bits_1);
     binary_to_dec(bits_2);
     binary_to_dec(bits_3);
