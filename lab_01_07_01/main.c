@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <math.h>
+#include <float.h>
 
+#define EPS DBL_EPSILON
 #define OK_END 0
 #define INPUT_ERROR_END 1
 #define EPSILON_ERROR_END 2
+#define UNDEF_RELATIVE_ERROR_END 3
 
 
 double get_series_sum(double x, double eps)
@@ -41,6 +44,10 @@ int main(void)
     else if (eps > 1 || eps <= 0)
     {
         return EPSILON_ERROR_END;
+    }
+    else if (x <= EPS)
+    {
+        return UNDEF_RELATIVE_ERROR_END;
     }
 
     // Calculations
