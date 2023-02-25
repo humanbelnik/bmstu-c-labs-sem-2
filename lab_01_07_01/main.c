@@ -12,9 +12,16 @@ double get_series_sum(double x, double eps)
 {
     double token = x;
     double summa = token;
-    int counter = 1;
-    int sign = 1;
+    int i = 1;
 
+    do
+    {
+        token = -token * pow(x, 2) / (2 * i * (2 * i + 1));
+        summa += token;
+        i++;
+    }
+    while (token >= eps);
+    /*
     do
     {
         counter += 2;
@@ -23,7 +30,7 @@ double get_series_sum(double x, double eps)
         summa += sign * token;
     }
     while (token > eps);
-
+    */
     return summa;
 }
 
