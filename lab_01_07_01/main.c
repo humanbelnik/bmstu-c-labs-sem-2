@@ -11,26 +11,18 @@
 double get_series_sum(double x, double eps)
 {
     double token = x;
-    double summa = token;
-    int i = 1;
+    int counter = 1;
+    int sign = 1;
+    double summa = 0;
 
-    do
+    while (fabs(token) >= eps)
     {
-        token = -token * pow(x, 2) / (2 * i * (2 * i + 1));
         summa += token;
-        i++;
-    }
-    while (token >= eps);
-    /*
-    do
-    {
-        counter += 2;
-        token *= pow(x, 2) / (counter * (counter - 1));
         sign *= -1;
-        summa += sign * token;
+        token *= sign * pow(x, 2) / ((counter + 1) * (counter + 2));
+        printf("[DBG] token : %lf\n", token);
+        counter += 2;
     }
-    while (token > eps);
-    */
     return summa;
 }
 
