@@ -57,10 +57,10 @@ int main(void)
     double relative_error = absolute_error / fabs(func_true);
 
     // Output
-    printf("Series summa: %lf\n", summa);
-    printf("True value: %lf\n", func_true);
-    printf("Absolute error: %lf\n", absolute_error);
-    printf("Relative error: %lf\n", relative_error);
+    printf("Series summa: %.6lf\n", summa);
+    printf("True value: %.6lf\n", func_true);
+    printf("Absolute error: %.6lf\n", absolute_error);
+    printf("Relative error: %.6lf\n", relative_error);
     
     return OK_END;
 }
