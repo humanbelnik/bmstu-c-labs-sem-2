@@ -11,17 +11,14 @@
 double get_series_sum(double x, double eps)
 {
     double token = x;
-    int counter = 1;
-    int sign = 1;
+    int divider = 1;
     double summa = 0;
 
     while (fabs(token) >= eps)
     {
         summa += token;
-        sign *= -1;
-        token *= sign * pow(x, 2) / ((counter + 1) * (counter + 2));
-        printf("[DBG] token : %lf\n", token);
-        counter += 2;
+        token *= -(x * x) / ((divider + 1) * (divider + 2));
+        divider += 2;
     }
     return summa;
 }
