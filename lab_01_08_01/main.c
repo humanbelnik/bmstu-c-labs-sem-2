@@ -3,21 +3,26 @@
 #include <stdio.h>
 #include <limits.h>
 #include <math.h>
+#include <stdbool.h>
 
 #define MAX UCHAR_MAX
 
 #define OK_END 0
 #define INPUT_ERROR_END 1
-#define BYTE_OVERFLOW_ERROR_END 2
+
+
+bool flag = true;
 
 int form_byte(int byte)
 {
     if (byte > MAX)
     {
+        flag = false;
         byte = 256 - byte;
     }
     else if (byte < 0)
     {
+        flag = false;
         byte = 256 + byte;
     }
 
@@ -92,7 +97,15 @@ int main(void)
     int bits_4[7];
 
     // After the following execution we print packed data and save each byte in binary in corresponding 'bits' array
-    printf("Result: ");
+    if (flag == true)
+    {
+        printf("Result: ");
+    }
+    else
+    {
+        printf("Error: ");
+    }
+
     dec_to_binary(byte_1, bits_1);
     dec_to_binary(byte_2, bits_2);
     dec_to_binary(byte_3, bits_3);
