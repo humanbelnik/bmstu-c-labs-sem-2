@@ -72,16 +72,9 @@ int main(void)
     if (input != 4)
     {
         printf("Error: incorrect input");
+
         return INPUT_ERROR_END;
     }
-
-    /*
-    byte_1 = form_byte(byte_1);
-    byte_2 = form_byte(byte_2);
-    byte_3 = form_byte(byte_3);
-    byte_4 = form_byte(byte_4);
-    */
-
     //Checking overflow of MAX and MIN boundaries
     else if (byte_1 > MAX || byte_2 > MAX || byte_3 > MAX || byte_4 > MAX)
     {
