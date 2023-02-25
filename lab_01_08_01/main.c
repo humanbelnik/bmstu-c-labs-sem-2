@@ -10,6 +10,20 @@
 #define INPUT_ERROR_END 1
 #define BYTE_OVERFLOW_ERROR_END 2
 
+int form_byte(int byte)
+{
+    if (byte > MAX)
+    {
+        byte = 256 - byte;
+    }
+    else if (byte < 0)
+    {
+        byte = 256 + byte;
+    }
+
+    return byte;
+}
+
 
 void dec_to_binary(int byte, int *bits)
 {
@@ -53,7 +67,13 @@ int main(void)
         printf("Error: incorrect input");
         return INPUT_ERROR_END;
     }
-    // Checking overflow of MAX and MIN boundaries
+
+    byte_1 = form_byte(byte_1);
+    byte_2 = form_byte(byte_2);
+    byte_3 = form_byte(byte_3);
+    byte_4 = form_byte(byte_4);
+
+    /* Checking overflow of MAX and MIN boundaries
     else if (byte_1 > MAX || byte_2 > MAX || byte_3 > MAX || byte_4 > MAX)
     {
         printf("Error: byte overflow");
@@ -64,7 +84,7 @@ int main(void)
         printf("Error: byte overflow");
         return BYTE_OVERFLOW_ERROR_END;
     }
-
+    */
     // Each 'bits' array will store binary representation of each byte
     int bits_1[7];
     int bits_2[7];
@@ -78,7 +98,6 @@ int main(void)
     dec_to_binary(byte_3, bits_3);
     dec_to_binary(byte_4, bits_4);
 
-    //printf(" ");
     binary_to_dec(bits_1);
     binary_to_dec(bits_2);
     binary_to_dec(bits_3);
