@@ -15,7 +15,7 @@ int main(void)
 
     // Calculations
     int section = (flat_number - 1) / flats_in_section + 1;
-    int floor = ((flat_number - 1) % flats_in_section) / flats_on_floor + 1 ;
+    int floor = ((flat_number - 1) % flats_in_section) / flats_on_floor + 1;
 
     // Output
     printf("Section and floor for your flat number: %d , %d", section, floor);

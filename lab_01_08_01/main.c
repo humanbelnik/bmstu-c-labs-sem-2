@@ -30,7 +30,7 @@ void binary_to_dec(int *bits)
 {
     int sum = 0;
 
-    for (int i = 7; i >=0; i--)
+    for (int i = 7; i >= 0; i--)
     {
         int digit = (int) ((int) bits[7 - i] * pow(2.0, i));
         sum += digit;

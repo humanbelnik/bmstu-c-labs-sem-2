@@ -10,47 +10,47 @@
 #define NOT_A_TRIANGLE_ERROR_END 3
 
 
-void get_area(double ABx, double ABy, double ACx, double ACy)
+void get_area(double ab_x, double ab_y, double ac_x, double ac_y)
 {
     double area;
 
-    area = fabs(ABx * ACy - ABy * ACx) / 2;
+    area = fabs(ab_x * ac_y - ab_y * ac_x) / 2;
     printf("Triangle's area: %.6lf", area);
 }
 
 
 int main(void)
 {
-    double Xa, Ya, Xb, Yb, Xc, Yc;
+    double x_a, y_a, x_b, y_b, x_c, y_c;
     printf("Enter coordinates for A, B, C: ");
 
     // Input validation
-    int input = scanf("%lf%lf%lf%lf%lf%lf", &Xa, &Ya, &Xb, &Yb, &Xc, &Yc);
+    int input = scanf("%lf%lf%lf%lf%lf%lf", &x_a, &y_a, &x_b, &y_b, &x_c, &y_c);
 
     if (input != 6)
     {
         return INPUT_ERROR_END;
     }
     // Check if all dots are in one line
-    else if ( fabs( (((Xa - Xb) / (Ya - Yb)) - ((Xa - Xc) / (Ya - Yc))) ) <= EPS )
+    else if (fabs((((x_a - x_b) / (y_a - y_b)) - ((x_a - x_c) / (y_a - y_c)))) <= EPS)
     {
         return ONE_LINE_ERROR_END;
     }
     // Check if it's on a horizontal line
     // or
     // three dots are the same actually
-    else if (fabs(Ya - Yb) <= EPS && fabs(Ya - Yc) <= EPS && fabs(Yb - Yc) <= EPS)
+    else if (fabs(y_a - y_b) <= EPS && fabs(y_a - y_c) <= EPS && fabs(y_b - y_c) <= EPS)
     {
         return NOT_A_TRIANGLE_ERROR_END;
     }
 
     // Calculating vectors
-    double ABx = Xb - Xa;
-    double ABy = Yb - Ya;
-    double ACx = Xc - Xa;
-    double ACy = Yc - Ya;
+    double ab_x = x_b - x_a;
+    double ab_y = y_b - y_a;
+    double ac_x = x_c - x_a;
+    double ac_y = y_c - y_a;
 
-    get_area(ABx, ABy, ACx, ACy);
+    get_area(ab_x, ab_y, ac_x, ac_y);
 
     return OK_END;
 }

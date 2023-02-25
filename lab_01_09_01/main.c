@@ -32,10 +32,10 @@ int calculate_sin(double *result)
         {
             return INPUT_ERROR_END;
         }
-
     }
     while (x >= 0);
     *result = sin(summa);
+
     return OK_END;
 }
 
