@@ -6,7 +6,6 @@
 #define OK_END 0
 #define INPUT_ERROR_END 1
 #define EPSILON_ERROR_END 2
-#define UNDEF_RELATIVE_ERROR_END 3
 
 
 double get_series_sum(double x, double eps)
@@ -45,10 +44,7 @@ int main(void)
     {
         return EPSILON_ERROR_END;
     }
-    else if (x <= EPS)
-    {
-        return UNDEF_RELATIVE_ERROR_END;
-    }
+
 
     // Calculations
     double summa = get_series_sum(x, eps);
