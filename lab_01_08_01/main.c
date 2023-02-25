@@ -94,14 +94,7 @@ int main(void)
     int bits_4[7];
 
     // After the following execution we print packed data and save each byte in binary in corresponding 'bits' array
-    if (flag == true)
-    {
-        printf("Result: ");
-    }
-    else
-    {
-        printf("Error: ");
-    }
+    printf("Result: ");
 
     dec_to_binary(byte_1, bits_1);
     dec_to_binary(byte_2, bits_2);
