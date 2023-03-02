@@ -47,6 +47,7 @@ void binary_output(uint32_t binary)
     for (int i = 0; i < 32; i++)
     {
         if (binary & mask_out) printf("1");
+
         else printf("0");
 
         mask_out >>= 1;
