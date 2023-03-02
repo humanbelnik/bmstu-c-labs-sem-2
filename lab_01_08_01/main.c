@@ -1,72 +1,72 @@
 // For this problem we assume that 1 byte is equal to 8 bits
-
 #include <stdio.h>
 #include <limits.h>
-#include <math.h>
-#include <stdbool.h>
+#include <stdint.h>
 
+// Defining constants for conversion
+#define FIRST_BYTE_SHIFT 24
+#define SECOND_BYTE_SHIFT 16
+#define THIRD_BYTE_SHIFT 8
 #define MAX UCHAR_MAX
 
+// Defining error return codes
 #define OK_END 0
 #define INPUT_ERROR_END 1
 #define BYTE_OVERFLOW_ERROR_END 3
 
-/*
-bool flag = true;
 
-int form_byte(int byte)
+uint32_t convert_to_binary(uint32_t byte_1, uint32_t byte_2, uint32_t byte_3, uint32_t byte_4)
 {
-    if (byte > MAX)
-    {
-        flag = false;
-        byte = 256 - byte;
-    }
-    else if (byte < 0)
-    {
-        flag = false;
-        byte = 256 + byte;
-    }
+    uint32_t result;
 
-    return byte;
-}
- */
+    uint32_t byte_shifted_1 = byte_1 << FIRST_BYTE_SHIFT;
+    uint32_t byte_shifted_2 = byte_2 << SECOND_BYTE_SHIFT;
+    uint32_t byte_shifted_3 = byte_3 << THIRD_BYTE_SHIFT;
+    uint32_t byte_shifted_4 = byte_4;
 
+    result = byte_shifted_1 + byte_shifted_2 + byte_shifted_3 + byte_shifted_4;
 
-void dec_to_binary(int byte, int *bits)
-{
-    int mask = 1;
-
-    for (int i = 0; i < 8; i++)
-    {
-        bits[7 - i] = (int) (byte >> i) & mask;
-    }
-
-    for (int i = 0; i < 8; i++)
-    {
-        printf("%d", bits[i]);
-    }
+    return result;
 }
 
-void binary_to_dec(int *bits)
-{
-    int sum = 0;
 
-    for (int i = 7; i >= 0; i--)
+uint32_t convert_to_decimal(uint32_t binary, uint32_t shift)
+{
+    uint32_t delta = 8 * shift;
+    uint32_t mask_out = 255 << delta;
+    uint32_t byte_dec = (binary & mask_out) >> delta;
+
+    return byte_dec;
+}
+
+
+void binary_output(uint32_t binary)
+{
+    uint32_t mask_out = 1 << 31;
+
+    for (int i = 0; i < 32; i++)
     {
-        int digit = (int) ((int) bits[7 - i] * pow(2.0, i));
-        sum += digit;
+        if (binary & mask_out) printf("1");
+        else printf("0");
+
+        mask_out >>= 1;
     }
     printf(" ");
-    printf("%d", sum);
+}
+
+
+void decimal_output(uint32_t byte_1, uint32_t byte_2, uint32_t byte_3, uint32_t byte_4)
+{
+    printf("%u %u %u %u", byte_1, byte_2, byte_3, byte_4);
 }
 
 
 int main(void)
 {
-    int byte_1, byte_2, byte_3, byte_4;
+    uint32_t byte_1, byte_2, byte_3, byte_4;
 
     printf("Insert values of four bytes: ");
-    int input = scanf("%d%d%d%d", &byte_1, &byte_2, &byte_3, &byte_4);
+    int input = scanf("%u%u%u%u", &byte_1, &byte_2, &byte_3, &byte_4);
 
     // Input validation
     if (input != 4)
@@ -76,6 +76,7 @@ int main(void)
         return INPUT_ERROR_END;
     }
     //Checking overflow of MAX and MIN boundaries
+    // We assume that byte values are from 0 to 255
     else if (byte_1 > MAX || byte_2 > MAX || byte_3 > MAX || byte_4 > MAX)
     {
         printf("Error: byte overflow");
@@ -87,24 +88,18 @@ int main(void)
         return BYTE_OVERFLOW_ERROR_END;
     }
 
-    // Each 'bits' array will store binary representation of each byte
-    int bits_1[7];
-    int bits_2[7];
-    int bits_3[7];
-    int bits_4[7];
-
-    // After the following execution we print packed data and save each byte in binary in corresponding 'bits' array
+    // Printing prompt
     printf("Result: ");
 
-    dec_to_binary(byte_1, bits_1);
-    dec_to_binary(byte_2, bits_2);
-    dec_to_binary(byte_3, bits_3);
-    dec_to_binary(byte_4, bits_4);
+    // Converting & output
+    uint32_t binary_representation = convert_to_binary(byte_1, byte_2, byte_3, byte_4);
+    binary_output(binary_representation);
 
-    binary_to_dec(bits_1);
-    binary_to_dec(bits_2);
-    binary_to_dec(bits_3);
-    binary_to_dec(bits_4);
+    uint32_t byte_dec_1 = convert_to_decimal(binary_representation, 3);
+    uint32_t byte_dec_2 = convert_to_decimal(binary_representation, 2);
+    uint32_t byte_dec_3 = convert_to_decimal(binary_representation, 1);
+    uint32_t byte_dec_4 = convert_to_decimal(binary_representation, 0);
+    decimal_output(byte_dec_1, byte_dec_2, byte_dec_3, byte_dec_4);
 
     return OK_END;
 }
