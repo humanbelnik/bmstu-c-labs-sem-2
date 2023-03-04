@@ -18,6 +18,11 @@ void get_area(double ab_x, double ab_y, double ac_x, double ac_y)
     printf("Triangle's area: %.6lf", area);
 }
 
+double get_vec_cords(double cord_1, double cord_2)
+{
+    return cord_1 - cord_2;
+}
+
 
 int main(void)
 {
@@ -45,10 +50,11 @@ int main(void)
     }
 
     // Calculating vectors
-    double ab_x = x_b - x_a;
-    double ab_y = y_b - y_a;
-    double ac_x = x_c - x_a;
-    double ac_y = y_c - y_a;
+
+    double ab_x = get_vec_cords(x_b, x_a);
+    double ab_y = get_vec_cords(y_b, y_a);
+    double ac_x = get_vec_cords(x_c, x_a);
+    double ac_y = get_vec_cords(y_c, y_a);
 
     get_area(ab_x, ab_y, ac_x, ac_y);
 

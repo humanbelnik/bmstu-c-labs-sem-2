@@ -17,3 +17,7 @@
 #### 02 - Incorrect input (INPUT_ERROR_END 1)
 - In: 1q
 - Out:
+
+#### 03 - Dividend is zero (NOT_POSITIVE_INPUT_END 2)
+- In: 0 1
+- Out: 

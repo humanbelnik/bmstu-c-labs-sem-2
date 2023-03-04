@@ -14,10 +14,14 @@ In: 0 0.1
 Out: 0.000000 0.000000 0.000000 nan
 
 ## Negative cases:
-#### 01 - Incorrect epsilon (EPSILON_ERROR_END 2)
+#### 01 - Incorrect epsilon > (EPSILON_ERROR_END 2)
 - In: 0 2
 - Out:
 
 #### 02 - Incorrect input (INPUT_ERROR_END 1)
 - In: 1q
 - Out:
+
+#### 03 - Incorrect epsilon < (EPSILON_ERROR_END 2)
+- In: 0 -1
+- Out: 
