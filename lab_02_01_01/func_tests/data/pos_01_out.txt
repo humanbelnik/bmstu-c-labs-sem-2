@@ -1,0 +1,1 @@
+Input size of array: Insert elements: Multiplication of all odds in your array: 15

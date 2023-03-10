@@ -1,0 +1,1 @@
+Input size of array: Insert elements: [ERR] : No odd numbers in your data

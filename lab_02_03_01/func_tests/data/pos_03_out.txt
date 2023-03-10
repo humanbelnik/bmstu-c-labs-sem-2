@@ -1,0 +1,1 @@
+Input the number of elements: Insert elements: Fibonacci's numbers inserted: -3 1 
