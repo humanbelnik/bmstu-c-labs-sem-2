@@ -1,1 +1,0 @@
-Input elements: Array sorted with insertion sort: -5 0 1 1 2 3 5 6 7 33 
