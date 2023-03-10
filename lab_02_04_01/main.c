@@ -36,7 +36,7 @@ int main(void)
 }
 
 
-bool make_data(int *nums, size_t *SIZE, bool *is_empty)
+bool make_data(int *nums, size_t *size, bool *is_empty)
 {
     bool flag_overflow = false;
     printf("Input elements: ");
@@ -46,15 +46,15 @@ bool make_data(int *nums, size_t *SIZE, bool *is_empty)
     {
         *is_empty = false;
 
-        if (*SIZE == 10)
+        if (*size == 10)
         {
             flag_overflow = true;
             break;
         }
         else
         {
-            *SIZE += 1;
-            nums[*SIZE - 1] = element;
+            *size += 1;
+            nums[*size - 1] = element;
         }
 
     }
@@ -62,9 +62,9 @@ bool make_data(int *nums, size_t *SIZE, bool *is_empty)
     return (flag_overflow) ? true : false;
 }
 
-void insertion_sort(int *nums, size_t SIZE)
+void insertion_sort(int *nums, size_t size)
 {
-    for (size_t i = 1; i < SIZE; i++)
+    for (size_t i = 1; i < size; i++)
     {
         size_t j = i;
         while ((j > 0) && (nums[j - 1] > nums[j]))
@@ -79,10 +79,10 @@ void insertion_sort(int *nums, size_t SIZE)
 }
 
 
-void show_data(const int *nums, size_t SIZE)
+void show_data(const int *nums, size_t size)
 {
     printf("Array sorted with insertion sort: ");
-    for (size_t i = 0; i < SIZE; i++)
+    for (size_t i = 0; i < size; i++)
     {
         printf("%d ", nums[i]);
     }

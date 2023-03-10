@@ -61,11 +61,11 @@ int main(void)
 }
 
 
-int make_data(int *nums, size_t SIZE)
+int make_data(int *nums, size_t size)
 {
     printf("Insert elements: ");
 
-    for (size_t i = 0; i < SIZE; i++)
+    for (size_t i = 0; i < size; i++)
     {
         int input = scanf("%d", &nums[i]);
 
@@ -78,10 +78,10 @@ int make_data(int *nums, size_t SIZE)
 }
 
 
-int primes_siever(int *nums_primes, const int *nums, size_t SIZE)
+int primes_siever(int *nums_primes, const int *nums, size_t size)
 {
     size_t primes_counter = 0;
-    for (size_t i = 0; i < SIZE; i++)
+    for (size_t i = 0; i < size; i++)
     {
         bool is_prime = true;
 

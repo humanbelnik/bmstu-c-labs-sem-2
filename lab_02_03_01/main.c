@@ -60,11 +60,11 @@ int main(void)
 }
 
 
-int make_data(int *nums, size_t SIZE)
+int make_data(int *nums, size_t size)
 {
     printf("Insert elements: ");
 
-    for (size_t i = 0; i < SIZE; i++)
+    for (size_t i = 0; i < size; i++)
     {
         int input = scanf("%d", &nums[i]);
 
@@ -77,10 +77,10 @@ int make_data(int *nums, size_t SIZE)
 }
 
 
-size_t count_fibos(const int *nums, size_t SIZE)
+size_t count_fibos(const int *nums, size_t size)
 {
     size_t fibos_amount = 0;
-    for (size_t i = 0; i < SIZE; i++)
+    for (size_t i = 0; i < size; i++)
     {
         if (nums[i] % 3 == 0)
         {
@@ -107,7 +107,7 @@ void gen_fibos(int *fibos, size_t fibos_amount)
 }
 
 
-void insert_fibos(const int *fibos, int *nums, size_t fibos_amount, size_t SIZE)
+void insert_fibos(const int *fibos, int *nums, size_t fibos_amount, size_t size)
 {
     size_t i = 0;
     size_t wall = 0;
@@ -116,7 +116,7 @@ void insert_fibos(const int *fibos, int *nums, size_t fibos_amount, size_t SIZE)
     {
         if (nums[wall] % 3 == 0)
         {
-            for (size_t j = SIZE + i; j > wall; j--)
+            for (size_t j = size + i; j > wall; j--)
             {
                 nums[j + 1] = nums[j];
             }
