@@ -16,12 +16,12 @@ int odds_multiplication(const int [], size_t);
 
 int main(void)
 {
-    size_t SIZE;
+    size_t size;
     int nums[ARR_SIZE_MAX];
 
 
     printf("Input size of array: ");
-    int input = scanf("%zu", &SIZE);
+    int input = scanf("%zu", &size);
 
     // Check input validation
     if (input != 1)
@@ -29,14 +29,14 @@ int main(void)
         printf("[ERR] : Incorrect input\n");
         return INPUT_ERR;
     }
-    else if (SIZE > ARR_SIZE_MAX || SIZE <= 0)
+    else if (size > ARR_SIZE_MAX || size <= 0)
     {
         printf("[ERR] : Index out of range\n");
         return INDEX_OUT_OF_RANGE_ERR;
     }
 
     // Hook errors while filling array with data
-    int make_return_code = make_data(nums, SIZE);
+    int make_return_code = make_data(nums, size);
     if (make_return_code == INPUT_ERR)
     {
         printf("[ERR] : Incorrect input\n");
@@ -44,7 +44,7 @@ int main(void)
     }
 
     // Hook errors while finding multiplication of all odds
-    int odds_mult_return_code = odds_multiplication(nums, SIZE);
+    int odds_mult_return_code = odds_multiplication(nums, size);
     if (odds_mult_return_code == NO_ODDS_ERR)
     {
         printf("[ERR] : No odd numbers in your data\n");

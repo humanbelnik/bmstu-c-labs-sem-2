@@ -19,18 +19,18 @@ void show_data(const int [], size_t);
 int main(void)
 {
     int nums[ARR_SIZE_MAX];
-    size_t SIZE = 0;
+    size_t size = 0;
     bool is_empty = true;
 
-    bool is_overflow = make_data(nums, &SIZE, &is_empty);
+    bool is_overflow = make_data(nums, &size, &is_empty);
 
     if (is_empty)
     {
         printf("[ERR] : No data\n");
         return NO_DATA_ERR;
     }
-    insertion_sort(nums, SIZE);
-    show_data(nums, SIZE);
+    insertion_sort(nums, size);
+    show_data(nums, size);
 
     return (is_overflow) ? APPROP_OVERFLOW_END : OK_END;
 }

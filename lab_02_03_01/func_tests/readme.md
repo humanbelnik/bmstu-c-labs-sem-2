@@ -1,30 +1,28 @@
-# Positive cases:
-### Test 01: [Expected zero fibos]
-- In : 4 1 2 4 7
-- Out :  1 2 4 7 
-### Test 02: [One bad element]
-- In : 1 1
-- Out :  1 
-### Test 03: [One good element]
+## Positive cases### Test 01: [No fibos]
+- In : 5 1 -2 5 4 1
+- Out : Input the number of elements: Insert elements: Fibonacci's numbers inserted: 1 -2 5 4 1 
+### Test 02: [One element - no fibos]
+- In : 1 7
+- Out : Input the number of elements: Insert elements: Fibonacci's numbers inserted: 7 
+### Test 03: [One element - fibo]
 - In : 1 -3
-- Out : -3 1 
-
-### Test 04: [All elements are good and size of data is max]
-- In : 10 0 0 3 120 -3 -6 9 3 3 12
-- Out :  0 1 0 1 3 2 120 3 -3 5 -6 8 9 13 3 21 3 34 12 55 
+- Out : Input the number of elements: Insert elements: Fibonacci's numbers inserted: -3 0 
+### Test 04: [Max array's size]
+- In : 10 3 3 -3 0 0 12 0 9 3 0
+- Out : Input the number of elements: Insert elements: Fibonacci's numbers inserted: 3 0 3 1 -3 1 0 2 0 3 12 5 0 8 9 13 3 21 0 34 
 # Negative cases: 
-### Test 01: [Incorrect size's data type]
-- In : y
-- Out :  [ERR] : Input error
-### Test 02: [Size out of range -- low]
-- In : -69
-- Out :  [ERR] : Index out of range
-### Test 03: [Size out of range -- high]
-- In : 111
-- Out : [ERR] : Index out of range
+### Test 01: [Incorrect size data type]
+- In : e
+- Out : Input the number of elements: [ERR] : Input error
+### Test 02: [Size out of range]
+- In : -1
+- Out : Input the number of elements: [ERR] : Index out of range
+### Test 03: [Size out of range --high]
+- In : 221
+- Out : Input the number of elements: [ERR] : Index out of range
 ### Test 04: [Size out of range -- null]
 - In : 0
-- Out :  [ERR] : Index out of range
-### Test 05: [Error while filling data]
-- In : 5 1 2 3 o 5
-- Out :  [ERR] : Input error
+- Out : Input the number of elements: [ERR] : Index out of range
+### Test 05: [Incorrect data type while filling data]
+- In : 3 1 w 0
+- Out : Input the number of elements: Insert elements: [ERR] : Input error

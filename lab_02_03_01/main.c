@@ -18,43 +18,43 @@ void show_data(const int [], size_t);
 
 int main(void)
 {
-    size_t SIZE;
+    size_t size;
     int nums[ARR_SIZE_MAX * 2];
     int fibos[ARR_SIZE_MAX];
 
     printf("Input the number of elements: ");
-    int input = scanf("%zu", &SIZE);
+    int input = scanf("%zu", &size);
     if (input != 1)
     {
         printf("[ERR] : Input error\n");
         return INPUT_ERR;
     }
-    else if (SIZE <= 0 || SIZE > ARR_SIZE_MAX)
+    else if (size <= 0 || size > ARR_SIZE_MAX)
     {
         printf("[ERR] : Index out of range\n");
         return INDEX_OUT_OF_RANGE_ERR;
     }
 
     // Hook errors while filling array with data
-    int make_return_code = make_data(nums, SIZE);
+    int make_return_code = make_data(nums, size);
     if (make_return_code == INPUT_ERR)
     {
         printf("[ERR] : Input error\n");
         return INPUT_ERR;
     }
 
-    size_t fibos_amount = count_fibos(nums, SIZE);
+    size_t fibos_amount = count_fibos(nums, size);
     if (fibos_amount == 0)
     {
-        show_data(nums, SIZE);
+        show_data(nums, size);
         return OK_END;
     }
 
     gen_fibos(fibos, fibos_amount);
 
-    insert_fibos(fibos, nums, fibos_amount, SIZE);
+    insert_fibos(fibos, nums, fibos_amount, size);
 
-    show_data(nums, SIZE + fibos_amount);
+    show_data(nums, size + fibos_amount);
 
     return OK_END;
 }
@@ -95,8 +95,9 @@ void gen_fibos(int *fibos, size_t fibos_amount)
 {
     int fib_0 = 0;
     int fib_1 = 1;
+    fibos[0] = 0;
 
-    for (size_t i = 0; i < fibos_amount; i++)
+    for (size_t i = 1; i < fibos_amount; i++)
     {
         int fib_next = fib_0 + fib_1;
         fib_1 = fib_0;

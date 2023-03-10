@@ -19,27 +19,27 @@ void show_primes(int []);
 
 int main(void)
 {
-    size_t SIZE;
+    size_t size;
     int nums[ARR_SIZE_MAX];
-    int nums_primes[ARR_SIZE_MAX] = {0};
+    int nums_primes[ARR_SIZE_MAX] = { 0 };
 
 
     printf("Input size of array: ");
-    int input = scanf("%zu", &SIZE);
+    int input = scanf("%zu", &size);
     // Check input validation
     if (input != 1)
     {
         printf("[ERR] : Input error\n");
         return INPUT_ERR;
     }
-    else if (SIZE > ARR_SIZE_MAX || SIZE <= 0)
+    else if (size > ARR_SIZE_MAX || size <= 0)
     {
         printf("[ERR] : Inder out of range\n");
         return INDEX_OUT_OF_RANGE_ERR;
     }
 
     // Hook errors while filling array with data
-    int make_return_code = make_data(nums, SIZE);
+    int make_return_code = make_data(nums, size);
     if (make_return_code == INPUT_ERR)
     {
         printf("[ERR] : Input error\n");
@@ -47,7 +47,7 @@ int main(void)
     }
 
     // Hook errors while forming 'primes-only' array from nums[]
-    int prime_sieve_return_code = primes_siever(nums_primes, nums, SIZE);
+    int prime_sieve_return_code = primes_siever(nums_primes, nums, size);
     if (prime_sieve_return_code == NO_PRIMES_ERR)
     {
         printf("[ERR] : No prime numbers in your data\n");

@@ -18,23 +18,23 @@ void calculation(int *, int *, const int);
 int main(void)
 {
     int nums[ARR_SIZE_MAX];
-    int SIZE;
+    int size;
 
     printf("Input size of your array: ");
-    int input = scanf("%d", &SIZE);
+    int input = scanf("%d", &size);
     if (input != 1)
     {
         printf("[ERR] : Input error\n");
         return INPUT_ERR;
     }
-    if (SIZE <= 0 || SIZE > ARR_SIZE_MAX)
+    if (size <= 0 || size > ARR_SIZE_MAX)
     {
         printf("[ERR] : Index out of range\n");
         return INDEX_OUT_OF_RANGE_ERR;
     }
 
     // Hook errors while filling data
-    int make_data_return_code = make_data(nums, nums + SIZE);
+    int make_data_return_code = make_data(nums, nums + size);
     if (make_data_return_code == INPUT_ERR)
     {
         printf("[ERR] : Input error\n");
@@ -42,7 +42,7 @@ int main(void)
     }
 
     // If all nums in array are NEG || POS -> Return ERR
-    int pairs_amount = count_pairs(nums, nums + SIZE);
+    int pairs_amount = count_pairs(nums, nums + size);
     if (pairs_amount == 0)
     {
         printf("[ERR] : No pos-neg pairs in your data\n");
@@ -50,7 +50,7 @@ int main(void)
     }
 
     // Calculate sum
-    calculation(nums, nums + SIZE, pairs_amount);
+    calculation(nums, nums + size, pairs_amount);
 
     return OK_END;
 }
