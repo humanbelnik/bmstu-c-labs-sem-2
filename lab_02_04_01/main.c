@@ -32,7 +32,12 @@ int main(void)
     insertion_sort(nums, size);
     show_data(nums, size);
 
-    return (is_overflow) ? APPROP_OVERFLOW_END : OK_END;
+    if (is_overflow)
+    {
+        return OK_END;
+    }
+    return OK_END;
+    //return (is_overflow) ? APPROP_OVERFLOW_END : OK_END;
 }
 
 
