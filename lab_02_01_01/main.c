@@ -72,12 +72,12 @@ int make_data(int *nums, size_t size)
 }
 
 
-int odds_multiplication(const int *nums, size_t SIZE)
+int odds_multiplication(const int *nums, size_t size)
 {
     int result = 1;
     bool odd_exist = false;
 
-    for (size_t i = 0; i < SIZE; i++)
+    for (size_t i = 0; i < size; i++)
     {
         if ((nums[i] % 2 != 0) && (nums[i] != 0))
         {
