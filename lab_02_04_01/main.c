@@ -32,12 +32,7 @@ int main(void)
     insertion_sort(nums, size);
     show_data(nums, size);
 
-    if (is_overflow)
-    {
-        return OK_END;
-    }
-    return OK_END;
-    //return (is_overflow) ? APPROP_OVERFLOW_END : OK_END;
+    return (is_overflow) ? APPROP_OVERFLOW_END : OK_END;
 }
 
 
@@ -61,7 +56,6 @@ bool make_data(int *nums, size_t *size, bool *is_empty)
             *size += 1;
             nums[*size - 1] = element;
         }
-
     }
 
     return (flag_overflow) ? true : false;
